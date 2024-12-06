@@ -1,4 +1,4 @@
-package se.yrgo;
+package se.yrgo.ui;
 
 public class Main {
     public static void main(String[] args) {
