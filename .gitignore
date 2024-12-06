@@ -11,8 +11,3 @@ bin
 *.class
 .classpath
 target
-
-# test
-# Test2
-# Test3
-# test 4
