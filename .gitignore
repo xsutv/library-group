@@ -1,0 +1,12 @@
+## utils ##
+.java-version
+.vscode
+.settings
+bin
+
+## MacOS ##
+.DS_Store
+
+## Java ##
+*.class
+.classpath
