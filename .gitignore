@@ -10,3 +10,6 @@ bin
 ## Java ##
 *.class
 .classpath
+target
+
+# test
