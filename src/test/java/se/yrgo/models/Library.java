@@ -1,4 +1,4 @@
-package se.yrgo;
+package se.yrgo.models;
 
 public class Library {
     
