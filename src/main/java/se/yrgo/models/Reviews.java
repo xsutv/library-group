@@ -3,9 +3,10 @@ package se.yrgo.models;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
+import java.util.Map.*;
 
 public class Reviews {
-    private List<Review> reviews = new ArrayList<>();
+    private HashMap<String, List<String>> reviewsMap = new HashMap<>();
 
     private void readReviews() {
         try (BufferedReader reader = Files.newBufferedReader(Path.of("src/main/java/se/yrgo/utils/Reviews.txt"))) {
@@ -15,12 +16,15 @@ public class Reviews {
             String review;
 
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(" ");
+                String[] parts = line.split(" , ");
                 isbn = parts[0];
                 comment = parts[1];
                 review = parts[2];
 
-                reviews.add(new Review(isbn, comment, review));
+                String reviewLine = isbn.trim().toString() + " " + comment.toString() + " " + review.toString();
+
+                reviewsMap.putIfAbsent(isbn, new ArrayList<>());
+                reviewsMap.get(isbn).add(reviewLine);
             }
         } catch (Exception e) {
             System.err.println(e);
@@ -43,5 +47,9 @@ public class Reviews {
         Reviews reviews = new Reviews();
         reviews.readReviews();
         reviews.addReview("9780307387899", "Goodie bookie", "4");
+
+        for (Entry<String, List<String>> string : reviews.reviewsMap.entrySet()) {
+            System.out.println(string);
+        }
     }
 }
