@@ -1,5 +1,5 @@
-package se.yrgo.models;
+// package se.yrgo.models;
 
-public class Loan {
+// public class Loan {
     
-}
+// }
