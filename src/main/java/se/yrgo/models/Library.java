@@ -64,7 +64,5 @@ public class Library {
                 System.out.println("Could not delete book.");
             }
         }
-    }<<<<<<<HEAD
-}=======
-
-}>>>>>>>9 b7b1651b806abd041a8a54a824ae3de255d73ba
+    }
+}
