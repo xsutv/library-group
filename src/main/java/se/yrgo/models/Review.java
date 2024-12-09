@@ -1,5 +1,5 @@
 package se.yrgo.models;
 
-public class Review {
-    
+public record Review(String isbn, String comment, String review) {
+
 }
