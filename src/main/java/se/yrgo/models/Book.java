@@ -8,7 +8,7 @@ public class Book {
     private String genre; // change this to an enum later.
     private int pages;
 
-    public Book(String isbn, String author, String title, String genre, int pages) {
+    public Book(String isbn, String title, String author, String genre, int pages) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
