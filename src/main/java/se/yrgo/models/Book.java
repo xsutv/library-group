@@ -1,5 +1,6 @@
 package se.yrgo.models;
 
+
 public class Book {
 
     private String author;
@@ -8,13 +9,14 @@ public class Book {
     private String genre; // change this to an enum later.
     private int pages;
 
-    public Book(String isbn, String title, String author, String genre, int pages) {
+    public Book(String isbn, String title, String author, int pages, String genre) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.pages = pages;
     }
+
 
     public String getAuthor() {
         return author;
@@ -36,4 +38,12 @@ public class Book {
         return pages;
     }
 
+
+    @Override
+    public String toString() {
+        return "Author: " + author + " Title: " + title + " ISBN: " + isbn + " Pages: " + pages + " Genre: "
+                + genre + "\n";
+    }
+
+    
 }
