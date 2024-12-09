@@ -27,8 +27,21 @@ public class Reviews {
         }
     }
 
+    public void addReview(String isbn, String comment, String review) {
+        String line = isbn.trim().toString() + " " + comment.toString() + " " + review.toString();
+
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("src/main/java/se/yrgo/utils/Reviews.txt", true))) {
+            writer.newLine();
+            writer.write(line);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
     public static void main(String[] args) {
         Reviews reviews = new Reviews();
         reviews.readReviews();
+        reviews.addReview("9780307387899", "Goodie bookie", "4");
     }
 }
