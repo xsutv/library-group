@@ -1,9 +1,7 @@
 package se.yrgo.models;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.*;
-
 import org.junit.jupiter.api.*;
 
 public class ReviewsTest {
