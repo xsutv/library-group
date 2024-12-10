@@ -14,6 +14,9 @@ public class ReviewsTest {
     }
 
     @Test
+    /**
+     * @author Fia
+     */
     public void testAddReview() {
         try {
             reviews.addReview("9780307387899", "Goodie bookie", "4");
@@ -24,6 +27,9 @@ public class ReviewsTest {
     }
 
     @Test
+    /**
+     * @author Fia
+     */
     public void testAddEmptyReview() throws IOException {
         assertThrows(IOException.class, () -> reviews.addReview("", "Comment", ""));
     }

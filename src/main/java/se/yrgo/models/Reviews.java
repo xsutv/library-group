@@ -8,6 +8,12 @@ import java.util.Map.*;
 public class Reviews {
     private HashMap<String, List<String>> reviewsMap = new HashMap<>();
 
+    /**
+     * this method reads each review from Reviews.txt and inserts it to local
+     * HashMap
+     * 
+     * @author Fia
+     */
     private void readReviews() {
         try (BufferedReader reader = Files.newBufferedReader(Path.of("src/main/java/se/yrgo/utils/Reviews.txt"))) {
             String line;
@@ -31,6 +37,14 @@ public class Reviews {
         }
     }
 
+    /**
+     * 
+     * @param isbn    id - isbn of reviewd book
+     * @param comment the actual review comment written by user
+     * @param review  a review from 1-5
+     * @throws IOException if review is empty
+     * @author Fia
+     */
     public void addReview(String isbn, String comment, String review) throws IOException {
         String line = isbn.trim().toString() + " , " + comment.toString() + " , " + review.toString();
 
@@ -49,6 +63,10 @@ public class Reviews {
         }
     }
 
+    /**
+     * @return count of all reviews from all books
+     * @author Fia
+     */
     public int getAllReviewsAmount() {
         int count = 0;
         for (Entry<String, List<String>> review : reviewsMap.entrySet()) {
@@ -56,13 +74,4 @@ public class Reviews {
         }
         return count;
     }
-
-    // public static void main(String[] args) {
-    // Reviews reviews = new Reviews();
-    // reviews.addReview("9780307387899", "Goodie bookie", "4");
-    // reviews.readReviews();
-
-    // System.out.println(reviews.getAllReviewsAmount());
-
-    // }
 }

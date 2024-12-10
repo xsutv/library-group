@@ -7,16 +7,6 @@ public class Book {
     private String isbn;
     private String genre; // change this to an enum later.
     private int pages;
-    private int review;
-
-    private int tryParseInt(String review) {
-        try {
-            return Integer.parseInt(review);
-        } catch (Exception e) {
-            System.err.println(e);
-            return 3;
-        }
-    }
 
     public Book(String isbn, String title, String author, int pages, String genre) {
         this.isbn = isbn;
