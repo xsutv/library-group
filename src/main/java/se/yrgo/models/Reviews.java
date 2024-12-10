@@ -31,8 +31,12 @@ public class Reviews {
         }
     }
 
-    public void addReview(String isbn, String comment, String review) {
+    public void addReview(String isbn, String comment, String review) throws IOException {
         String line = isbn.trim().toString() + " , " + comment.toString() + " , " + review.toString();
+
+        if (review.toString() == "" || isbn.trim().toString() == "") {
+            throw new IOException("No review found!");
+        }
 
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter("src/main/java/se/yrgo/utils/Reviews.txt", true))) {
