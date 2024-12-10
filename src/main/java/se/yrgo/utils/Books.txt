@@ -94,3 +94,4 @@
 9781529029581,Before the Coffee Gets Cold,Toshikazu Kawaguchi,224,null
 1529050863,Tales from the Cafe,Toshikazu Kawaguchi,256,null
 123,null,null,4,null
+null,null,null,4,null

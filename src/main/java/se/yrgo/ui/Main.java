@@ -20,7 +20,7 @@ public class Main {
                 new Book("9781784700447", "The Memory Police", "Yoko Ogawa", 288, "null"),
                 new Book("9781529029581", "Before the Coffee Gets Cold", "Toshikazu Kawaguchi", 224, "null"),
                 new Book("1529050863", "Tales from the Cafe", "Toshikazu Kawaguchi", 256, "null"),
-                new Book("123", "null", "null", 4, "null")));
+                new Book("null", "null", "null", 4, "null")));
 
         try {
 
@@ -29,7 +29,6 @@ public class Main {
             }           
 
             Book test = new Book("test", "test", "test", 55, "test");
-            Book test2 = new Book("test", "test", "test", 55, "test");
 
             lib.addBook(test);
 
@@ -46,7 +45,7 @@ public class Main {
                 System.out.println(b);
             }
 
-            // lib.removeBook("1555");
+            lib.removeBook("null");
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

@@ -39,6 +39,7 @@ public class Library {
      * 
      * @param book
      * @throws IllegalArgumentException - if book already exists in library.
+     * @author [Haimen Abbas xzutv @Github]
      */
 
     public void addBook(Book book) {
@@ -53,10 +54,11 @@ public class Library {
     /**
      * COMPLETE
      * This takes a Book object that exists in our List<Book> library as a parameter
-     * A control is made of the ISBN of the given book, if it already exists in our Books.txt, it will give an error and not add it.
+     * A control is made of the ISBN of the given book, if it already exists in our
+     * Books.txt, it will give an error and not add it.
      * 
      * @param book
-     * @author Haimen Abbas - xsutv @ GitHub
+     * @author [Haimen Abbas xzutv @Github]
      */
 
     public void addBookFromListToFile(Book book) {
@@ -92,6 +94,8 @@ public class Library {
     /**
      * This method reads from a textfile called Books.txt and adds it to our
      * List<Books> Library.
+     * 
+     * @author [Haimen Abbas xzutv @Github]
      */
 
     public void addBookFromFileToList() {
@@ -123,27 +127,41 @@ public class Library {
         }
     }
 
-    // public void removeBook(String isbn) {
+    /**
+     * 
+     * 
+     * @param isbn
+     * @throws IOException
+     * @author [Haimen Abbas xzutv @Github]
+     */
 
-    // try {
-    // for (Book b : lib) {
-    // if (b.getIsbn().equals(isbn)) {
-    // lib.remove(b);
-    // System.out.println("Book successfully deleted.");
-    // return;
-    // } else {
-    // throw new IOException("Could not find book");
-    // }
-    // }
-    // } catch (IOException e){
-    // System.err.println(e.getMessage());
-    // }
-    // }
+    public void removeBook(String isbn) throws IOException {
+        boolean found = false;
 
-    // public Book searchBook(final String isbn) {
+        for (int i = 0; i < lib.size(); i++) {
+            if (lib.get(i).getIsbn().equals(isbn)) {
+                lib.remove(i);
+                System.out.println("Book successfully deleted.");
+                found = true;
+                break; 
+            }
+        }
 
-    // return lib.stream().filter(s ->
-    // s.getIsbn().equals(isbn)).findAny().orElseThrow();
-    // }
+        if (!found) {
+            throw new IOException("Could not find book");
+        }
+
+    }
+
+    /**
+     * 
+     * @param isbn
+     * @return true if book exists.
+     * @author [Haimen Abbas xzutv @Github]
+     */
+
+    public Book searchBook(final String isbn) {
+        return lib.stream().filter(s -> s.getIsbn().equals(isbn)).findAny().orElseThrow();
+    }
 
 }
