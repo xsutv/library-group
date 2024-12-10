@@ -1,5 +1,5 @@
-package se.yrgo.ui;
+// package se.yrgo.ui;
 
-public class Main {
+// public class Main {
     
-}
+// }
