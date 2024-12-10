@@ -2,13 +2,12 @@ package se.yrgo.ui;
 
 import java.io.*;
 import java.util.*;
-
 import se.yrgo.models.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        // Library tests:::: 
+        // Library tests::::
 
         Library lib = new Library();
 
@@ -26,20 +25,21 @@ public class Main {
 
             for (Book b : library) {
                 lib.addBook(b);
-            }           
+            }
 
             Book test = new Book("test", "test", "test", 55, "test");
 
             lib.addBook(test);
 
-            // This loop goes through our library win locally added books, and uses each book with the given method. 
-            // If the book ISBN doesn't exists in our Books.txt, it gets added. Otherwise it will not
+            // This loop goes through our library win locally added books, and uses each
+            // book with the given method.
+            // If the book ISBN doesn't exists in our Books.txt, it gets added. Otherwise it
+            // will not
             for (Book b : library) {
                 lib.addBookFromListToFile(b);
             }
 
             lib.addBookFromFileToList();
-
 
             for (Book b : lib.getLib()) {
                 System.out.println(b);

@@ -14,9 +14,6 @@ import java.util.*;
 
 public class Library {
 
-    // Om jag hinner ; lägga till en metod som kontrollerar om boken redan finns i
-    // textfilen innan den läggs till.
-
     private List<Book> lib = new ArrayList<>();
 
     // Standard Constructor.
@@ -163,5 +160,4 @@ public class Library {
     public Book searchBook(final String isbn) {
         return lib.stream().filter(s -> s.getIsbn().equals(isbn)).findAny().orElseThrow();
     }
-
 }

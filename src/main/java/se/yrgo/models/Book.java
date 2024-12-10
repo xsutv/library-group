@@ -1,6 +1,5 @@
 package se.yrgo.models;
 
-
 public class Book {
 
     private String author;
@@ -15,8 +14,8 @@ public class Book {
         this.author = author;
         this.genre = genre;
         this.pages = pages;
+        // this.review = tryParseInt(review);
     }
-
 
     public String getAuthor() {
         return author;
@@ -38,12 +37,10 @@ public class Book {
         return pages;
     }
 
-
     @Override
     public String toString() {
         return "Author: " + author + " Title: " + title + " ISBN: " + isbn + " Pages: " + pages + " Genre: "
                 + genre + "\n";
     }
 
-    
 }
