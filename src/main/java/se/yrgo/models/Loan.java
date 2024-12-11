@@ -29,7 +29,7 @@ public class Loan {
     public void checkLoanStatus(Book book, User user){
         loanList.put(isbn, user.getUserID());
         if (loanList.containsKey(isbn) && loanList.containsValue(user.getUserID())){
-            System.err.println("Book is already borrowed   ");
+            System.err.println("Book is already borrowed ");
         }
         else{
             System.out.println("The Book is free");
