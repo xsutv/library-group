@@ -7,6 +7,15 @@ import se.yrgo.models.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        // visa vem du är inloggad som en användare
+        // loan book
+        // add review
+
+
+
+
+
+
         // Library tests::::
 
         Library lib = new Library();
