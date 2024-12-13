@@ -6,9 +6,46 @@ import java.util.*;
 import se.yrgo.models.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    private static Library library = new Library();
+    private static Book book;
 
-        // visa vem du är inloggad som en användare
+    private static void addBookFunctionality() {
+        String isbn = "";
+        String title = "";
+        String author = "";
+        String genre = "";
+        int page = 0;
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(
+                        i == 1 ? "Enter isbn: "
+                                : i == 2 ? "Enter title: "
+                                        : i == 3 ? "Enter author"
+                                                : i == 4 ? "Enter genre" : i == 5 ? "Enter page" : null);
+
+                if (i == 1) {
+                    isbn = scanner.nextLine();
+                } else if (i == 2) {
+                    title = scanner.nextLine();
+                } else if (i == 3) {
+                    author = scanner.nextLine();
+                } else if (i == 4) {
+                    genre = scanner.nextLine();
+                } else if (i == 5) {
+                    page = scanner.nextInt();
+                } else {
+                    return;
+                }
+            }
+            book = new Book(isbn, title, author, page, genre);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        // add book
         // loan book
         // add review
 
@@ -22,6 +59,26 @@ public class Main {
 
         for (int i = 0; i < options.size(); i++) {
             System.out.println((i + 1) + ". " + options.get(i));
+        }
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            switch (scanner.nextLine()) {
+                case "1":
+                    addBookFunctionality();
+                    library.addBook(book);
+                    System.out.println(book);
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+
+                    break;
+                default:
+                    break;
+            }
+        } catch (Exception e) {
+            System.err.println(e);
         }
     }
 }
