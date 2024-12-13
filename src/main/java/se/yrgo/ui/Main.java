@@ -6,6 +6,7 @@ import java.util.*;
 import se.yrgo.models.*;
 
 public class Main {
+    private static Reviews review = new Reviews();
     private static Library library = new Library();
     private static Book book;
 
@@ -39,9 +40,42 @@ public class Main {
                 }
             }
             book = new Book(isbn, title, author, page, genre);
+
+            library.addBook(book);
+            library.addBookFromListToFile(book);
+
         } catch (Exception e) {
             System.err.println(e);
         }
+    }
+
+    private static void addUserReview() {
+        // Reviews rev = new Reviews();
+        try (Scanner input = new Scanner(System.in)) {
+
+            do {
+                System.out.println("Ange det ISBN för den bok du vill recensera: ");
+                String isbn = input.nextLine().trim();
+
+                System.out.println("Kommentar: (frivilligt)");
+                String comment = input.nextLine().trim();
+
+                System.out.println("Ange ditt betyg 1-5");
+                String rating = input.nextLine().trim();
+
+                review.addReview(isbn, comment, rating);
+
+                System.out.println("Tack för din recension!");
+
+            } while (input.nextLine() != null);
+
+        } catch (IOException e) {
+            System.out.println("Something went wrong " + e.getMessage());
+        }
+    }
+
+    private static void rentBook() {
+        
     }
 
     public static void main(String[] args) throws IOException {
@@ -65,14 +99,12 @@ public class Main {
             switch (scanner.nextLine()) {
                 case "1":
                     addBookFunctionality();
-                    library.addBook(book);
-                    System.out.println(book);
-                    break;
+                    return;
                 case "2":
 
                     break;
                 case "3":
-
+                    addUserReview();
                     break;
                 default:
                     break;
