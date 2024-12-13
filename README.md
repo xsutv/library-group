@@ -1,14 +1,30 @@
-Todo-list: 
+# Library 📚
 
-1. Bibliotek/Bokhanteringssystem
+This project is a library where you can add, browse, rent and add reviews on books.
 
-2. Samarbetsmetod - SCRUM 
-Följa upp kontinuerligt
-Github todolist? 
+## Developers
 
+[Haimen](https://github.com/xsutv) </br>
+[Viggo](https://github.com/viggo2003) </br>
+[Max](https://github.com/maxsve18) </br>
+[Fia](https://github.com/fiababiakandersson)
 
-3. Powerpoint - Fia 
+## Getting started
 
-4. Presentation 
+### Step 1:
 
-5. 
+After downloading the repository, open a terminal and go to the project root folder.
+
+Run `mvn compile` to generate needed target folder.</br>
+Then in the same directory, run: `mvn compile` and then `mvn package`.
+Then run `java -jar target/groupseven-1.0-SNAPSHOT.jar`.
+
+### Step 2:
+
+After this, a menu will appear where you're given 3 opportunities:
+
+1. **Add book** - Add a book to library.
+2. **Rent book** - 
+3. **Add book review** - Leave a review on any given book in the library by specifying it's ISBN.
+
+---
