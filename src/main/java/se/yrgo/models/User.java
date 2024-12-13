@@ -18,6 +18,20 @@ public class User {
                 this.eMail = eMail;
         }
 
+        
+
+        public String getName() {
+                return name;
+        }
+
+
+
+        public String getLastName() {
+                return lastName;
+        }
+
+
+
         @Override
         public String toString() {
                 return "User{" +
