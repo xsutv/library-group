@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.Map.*;
 
 public class Reviews {
-    private HashMap<String, List<String>> reviewsMap = new HashMap<>();
+    private static HashMap<String, List<String>> reviewsMap = new HashMap<>();
 
     /**
      * this method reads each review from Reviews.txt and inserts it to local
@@ -41,14 +41,14 @@ public class Reviews {
      * 
      * @param isbn    id - isbn of reviewd book
      * @param comment the actual review comment written by user
-     * @param review  a review from 1-5
+     * @param rating  a review from 1-5
      * @throws IOException if review is empty
      * @author Fia
      */
-    public void addReview(String isbn, String comment, String review) throws IOException {
-        String line = isbn.trim().toString() + " , " + comment.toString() + " , " + review.toString();
+    public void addReview(String isbn, String comment, String rating) throws IOException {
+        String line = isbn.trim().toString() + " , " + comment.toString() + " , " + rating.toString();
 
-        if (review.toString() == "" || isbn.trim().toString() == "") {
+        if (rating.toString() == "" || isbn.trim().toString() == "") {
             throw new IOException("No review found!");
         }
 
@@ -61,6 +61,8 @@ public class Reviews {
         } catch (Exception e) {
             System.err.println(e);
         }
+
+        System.out.println(line);
     }
 
     /**

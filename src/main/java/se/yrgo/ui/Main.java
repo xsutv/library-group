@@ -2,53 +2,118 @@ package se.yrgo.ui;
 
 import java.io.*;
 import java.util.*;
+
 import se.yrgo.models.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    private static Reviews review = new Reviews();
+    private static Library library = new Library();
+    private static Book book;
 
-        // Library tests::::
-
-        Library lib = new Library();
-
-        // List<Book> library = new ArrayList<>();
-
-        List<Book> library = new ArrayList<>(List.of(
-                new Book("9780008511685", "Butter", "Asako Yuzuki", 450, "null"),
-                new Book("9781405950084", "Black Cake", "Charmaine Wikerson", 432, "null"),
-                new Book("9781784700447", "The Memory Police", "Yoko Ogawa", 288, "null"),
-                new Book("9781529029581", "Before the Coffee Gets Cold", "Toshikazu Kawaguchi", 224, "null"),
-                new Book("1529050863", "Tales from the Cafe", "Toshikazu Kawaguchi", 256, "null"),
-                new Book("null", "null", "null", 4, "null")));
+    private static void addBookFunctionality(Scanner scanner) {
+        String isbn = "";
+        String title = "";
+        String author = "";
+        String genre = "";
+        int page = 0;
 
         try {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(
+                        i == 1 ? "Enter isbn: "
+                                : i == 2 ? "Enter title: "
+                                        : i == 3 ? "Enter author: "
+                                                : i == 4 ? "Enter genre: " : "Enter page: ");
 
-            for (Book b : library) {
-                lib.addBook(b);
+                if (i == 1) {
+                    isbn = scanner.nextLine();
+                } else if (i == 2) {
+                    title = scanner.nextLine();
+                } else if (i == 3) {
+                    author = scanner.nextLine();
+                } else if (i == 4) {
+                    genre = scanner.nextLine();
+                } else if (i == 5) {
+                    page = scanner.nextInt();
+                    scanner.nextLine(); // Consume leftover newline
+                }
             }
+            book = new Book(isbn, title, author, page, genre);
 
-            Book test = new Book("test", "test", "test", 55, "test");
+            library.addBook(book);
+            library.addBookFromListToFile(book);
 
-            lib.addBook(test);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
 
-            // This loop goes through our library win locally added books, and uses each
-            // book with the given method.
-            // If the book ISBN doesn't exists in our Books.txt, it gets added. Otherwise it
-            // will not
-            for (Book b : library) {
-                lib.addBookFromListToFile(b);
-            }
+    private static void addUserReview() {
+        // Reviews rev = new Reviews();
+        try (Scanner input = new Scanner(System.in)) {
+            do {
+                System.out.println("Ange det ISBN för den bok du vill recensera: ");
+                String isbn = input.nextLine().trim();
 
-            lib.addBookFromFileToList();
+                System.out.println("Kommentar: (frivilligt)");
+                String comment = input.nextLine().trim();
 
-            for (Book b : lib.getLib()) {
-                System.out.println(b);
-            }
+                System.out.println("Ange ditt betyg 1-5");
+                String rating = input.nextLine().trim();
 
-            lib.removeBook("null");
+                review.addReview(isbn, comment, rating);
 
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+                System.out.println("Tack för din recension!");
+
+            } while (input.nextLine() != null);
+
+        } catch (IOException e) {
+            System.out.println("Something went wrong " + e.getMessage());
+        }
+    }
+
+    private static void rentBook() {
+
+    }
+
+    public static void main(String[] args) throws IOException {
+        // add book
+        // loan book
+        // add review
+        String input = "";
+
+        List<String> options = new ArrayList<>(List.of("Add book", "Rent book", "Add book review"));
+
+        User loggedInUser = new User("123abc", "Björn", "Järnsida", "Kattigatt 37", "getgood@outlook.com");
+
+        try (Scanner scanner = new Scanner(System.in)) {
+
+            do {
+                System.out.println("You're logged in as: " + loggedInUser.getName() + " " + loggedInUser.getLastName());
+
+                System.out.printf("%nEnter number of what you want to do: %n(Enter X to exit)%n");
+
+                for (int i = 0; i < options.size(); i++) {
+                    System.out.println((i + 1) + ". " + options.get(i));
+                }
+
+                input = scanner.nextLine();
+
+                switch (input) {
+                    case "1":
+                        addBookFunctionality(scanner);
+                        break;
+                    case "2":
+                        // Rent book functionality
+                        break;
+                    case "3":
+                        addUserReview();
+                        break;
+                    default:
+                        break;
+                }
+
+            } while (!input.equalsIgnoreCase("x"));
         }
     }
 }
