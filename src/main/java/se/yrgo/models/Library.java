@@ -46,6 +46,7 @@ public class Library {
             }
         }
         lib.add(book);
+        System.out.println("Book was successfully added: " + book);
     }
 
     /**

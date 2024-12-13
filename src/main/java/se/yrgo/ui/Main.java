@@ -1,10 +1,12 @@
 package se.yrgo.ui;
 
+import java.io.*;
 import java.util.*;
 
 import se.yrgo.models.*;
 
 public class Main {
+    private static Reviews review = new Reviews();
     private static Library library = new Library();
     private static Book book;
 
@@ -37,12 +39,47 @@ public class Main {
                 }
             }
             book = new Book(isbn, title, author, page, genre);
+
+            library.addBook(book);
+            library.addBookFromListToFile(book);
+
         } catch (Exception e) {
             System.err.println(e);
         }
     }
 
-    public static void main(String[] args) {
+    private static void addUserReview() {
+        // Reviews rev = new Reviews();
+        try (Scanner input = new Scanner(System.in)) {
+            do {
+                System.out.println("Ange det ISBN för den bok du vill recensera: ");
+                String isbn = input.nextLine().trim();
+
+                System.out.println("Kommentar: (frivilligt)");
+                String comment = input.nextLine().trim();
+
+                System.out.println("Ange ditt betyg 1-5");
+                String rating = input.nextLine().trim();
+
+                review.addReview(isbn, comment, rating);
+
+                System.out.println("Tack för din recension!");
+
+            } while (input.nextLine() != null);
+
+        } catch (IOException e) {
+            System.out.println("Something went wrong " + e.getMessage());
+        }
+    }
+
+    private static void rentBook() {
+
+    }
+
+    public static void main(String[] args) throws IOException {
+        // add book
+        // loan book
+        // add review
         String input = "";
 
         List<String> options = new ArrayList<>(List.of("Add book", "Rent book", "Add book review"));
@@ -50,6 +87,7 @@ public class Main {
         User loggedInUser = new User("123abc", "Björn", "Järnsida", "Kattigatt 37", "getgood@outlook.com");
 
         try (Scanner scanner = new Scanner(System.in)) {
+
             do {
                 System.out.println("You're logged in as: " + loggedInUser.getName() + " " + loggedInUser.getLastName());
 
@@ -64,22 +102,18 @@ public class Main {
                 switch (input) {
                     case "1":
                         addBookFunctionality(scanner);
-                        library.addBook(book);
-                        library.addBookFromListToFile(book);
-                        System.out.println(book);
                         break;
                     case "2":
                         // Rent book functionality
                         break;
                     case "3":
-                        // Add book review functionality
+                        addUserReview();
                         break;
                     default:
                         break;
                 }
+
             } while (!input.equalsIgnoreCase("x"));
-        } catch (Exception e) {
-            System.err.println(e);
         }
     }
 }
