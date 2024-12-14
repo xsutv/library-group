@@ -21,7 +21,7 @@ Then run `java -jar target/groupseven-1.0-SNAPSHOT.jar`.
 
 ### Step 2:
 
-After this, a menu will appear where you're given 3 opportunities:
+After this, a menu will appear where you're given 3 options:
 
 1. **Add book** - Add a book to library.
 2. **Rent book** - 

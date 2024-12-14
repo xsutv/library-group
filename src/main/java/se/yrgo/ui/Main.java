@@ -52,18 +52,18 @@ public class Main {
         // Reviews rev = new Reviews();
         try (Scanner input = new Scanner(System.in)) {
             do {
-                System.out.println("Ange det ISBN för den bok du vill recensera: ");
+                System.out.println("Specify the ISBN of the book you want to review: ");
                 String isbn = input.nextLine().trim();
 
-                System.out.println("Kommentar: (frivilligt)");
+                System.out.println("Comment: (frivilligt)");
                 String comment = input.nextLine().trim();
 
-                System.out.println("Ange ditt betyg 1-5");
+                System.out.println("Rate the book 1-5: ");
                 String rating = input.nextLine().trim();
 
                 review.addReview(isbn, comment, rating);
 
-                System.out.println("Tack för din recension!");
+                System.out.println("Thank you for your review!");
 
             } while (input.nextLine() != null);
 

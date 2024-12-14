@@ -1,0 +1,57 @@
+LOGGBOK:
+---
+
+Onsdag 2024-12-04
+Plats: Lärdomsgatan.
+
+Utföranden:
+Val av projekt.
+Skiss av projekt.
+Utformandet av maven-build och projekt-skal i VSC, Dessa uppgifter gjordes tillsammans i gruppen. 
+
+---
+
+Fredag 2024-12-06
+Plats: Discord, distans.
+
+Utföranden:
+Jenkins, Github och Build saker gjorda. 
+En hel del problem med jdk version för projektet där vi behövde alla ladda ner jdk 21 och jdk17. Vi valde tillslut att använda oss utav jdk21. 
+Problemet var att IOS + homebrew hade problem med jdk17. 
+
+---
+
+Måndag 2024-12-09
+Plats: Lärdomsgatan.
+
+Utföranden:
+Gemensamt skapandet av Book klassen.
+Vi lägger till en review-klass, då vi är 4 i gruppen.
+Vi bestämde vem som skulle ta vilka klasser.
+
+Uppdelning av klasser och testklasser:
+Loan - Viggo
+Library - Haimen
+Users - Max
+Review - Fia
+
+---
+
+GitHub:
+Diskussion om branches, alla ska ha en branch var att arbeta med. 
+Utöver Main och våra egna branches lades det till en Development branch som ett extra filter som säkerhetsåtgärd.
+Vi utförde issues som vi plockade våra "arbetsuppgifter" ifrån. 
+
+---
+
+Fredag 2024-12-13
+Plats: Lärdomsgatan.
+
+Utföranden:
+Arbete med Main och de sista delarna av klassarbeten. 
+Sammanslagning av arbete från samtliga branches.
+Hanterade merge-konflikter och synk av våra individuella arbeten tillsammans. 
+Säkerställde att allas Jenkinsbuilds fungerade. 
+
+---
+

@@ -46,7 +46,7 @@ public class LibraryTest {
     @Test // This test should throw an IOException because book is not existing in
           // library.
     public void testRemoveBookNotFound() {
-        assertThrows(IOException.class, () -> lib.removeBook("9999"));
+        assertThrows(IOException.class, () -> lib.removeBook("99993434991ff4342"));
     }
 
     @Test
