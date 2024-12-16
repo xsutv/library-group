@@ -6,7 +6,14 @@ import java.util.Map;
 
 public class Loan {
     private String isbn;
-    private Map<String, String> loanList = new HashMap<>();
+    private static Map<String, String> loanList = new HashMap<>();
+
+
+
+
+    public Map<String, String> getLoanList() {
+        return loanList;
+    }
 
 
 
@@ -22,23 +29,34 @@ public class Loan {
         return isbn;
     } 
 
-    public void loanBook(){
+    
+
+    public static void loanBook(Book book, User user){
+        String isbn = book.getIsbn();
+        String userID = user.getUserID();
+        if(checkLoanStatus(isbn, user)==true){
+            loanList.put(isbn, userID); 
+            System.out.println("return book before: " + returnDate());
+        }
+        else{
+            System.err.println("Book is already borrowed");
+        }
+        
         
         
     }
-    public void checkLoanStatus(Book book, User user){
-        loanList.put(isbn, user.getUserID());
-        if (loanList.containsKey(isbn) && loanList.containsValue(user.getUserID())){
-            System.err.println("Book is already borrowed ");
+    public static boolean checkLoanStatus(String isbn, User user){
+        
+        if (loanList.containsKey(isbn)){
+            return false; 
         }
         else{
-            System.out.println("The Book is free");
-            System.out.println("return the book before: " + returnDate());
-            
+            System.out.println("The Book is free");   
+            return true;  
         }     
         
     }
-    private LocalDate returnDate(){
+    private static LocalDate returnDate(){
         LocalDate returnDate = LocalDate.now().plusDays(21);
         return returnDate; 
         
