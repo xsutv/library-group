@@ -42,8 +42,13 @@ public class User {
         public String getEMail() {
                 return eMail;
         }
-
-        // Registration method.
+        /**
+         * Registration method. 
+         * Scanner for input to all the membervariables. 
+         * Create and add the new users.
+         * Catch exception for user registration error. 
+         * @author [Max Svensson, maxsve18 @github]
+         */
         public static void registerUser() {
                 try (Scanner scanner = new Scanner(System.in);) {
                         System.out.println("Enter User ID:");
@@ -80,7 +85,7 @@ public class User {
                                 System.out.println("Invalid email format. Registration failed.");
                                 return;
                         }
-                        // Create and add the new users.
+                       
                         User newUser = new User(userID, name, lastName, address, email);
                         userList.add(newUser);
 
@@ -90,7 +95,10 @@ public class User {
                 }
         }
 
-        // Retrieving the userlist.
+        /**
+         * UserList of registrerd example users.
+         * @author [Max Svensson, maxsve18 @github]
+         */
         public static List<User> getUserList() {
                 return new ArrayList<>(List.of(
                                 new User("234579128", "Leonard", "Björkengren", "Östra Storgatan 8, 553 21 Jönköping",

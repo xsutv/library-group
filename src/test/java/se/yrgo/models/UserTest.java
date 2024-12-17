@@ -10,7 +10,11 @@ import org.junit.jupiter.api.Test;
 
 public class UserTest {
     private final InputStream originalSystemIn = System.in;
-
+    /**
+     * Reseting the userlist after each test to avoid any obstacles. 
+     * Ensuring clean up and that no side effects persists between tests.  
+     * @author [Max Svensson, maxsve18 @github]  
+     */
     @BeforeEach
     void setUp() {
         User.getUserList().clear();
@@ -20,20 +24,23 @@ public class UserTest {
     void restoreSystemIn() {
         System.setIn(originalSystemIn);
     }
-
+    /**
+     * Test to register users. 
+     * Preforming Registration.
+     * Retrieve the userlist and checks size.
+     * Validate user details.
+     * @author [Max Svensson, maxsve18 @github]  
+     */
     @Test
     void testRegisterUser() {
         String simulatedInput = "234579128\nLeonard\nBjörkengren\nÖstra Storgatan 8, 553 21 Jönköping\nleo.björkengren@gmail.com\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
-        // Preforming Registration. 
         User.registerUser();
 
-        // Retrieve the userlist and checks size. 
         List<User> users = User.getUserList();
         assertEquals(3, users.size(), "User list should contain 3 user");
 
-        // Validate user details
         User registeredUser = users.get(0);
         assertEquals("234579128", registeredUser.getUserID());
         assertEquals("Leonard", registeredUser.getName());
@@ -41,7 +48,13 @@ public class UserTest {
         assertEquals("Östra Storgatan 8, 553 21 Jönköping", registeredUser.getAdress());
         assertEquals("leo.björkengren@gmail.com", registeredUser.getEMail());
     }
-
+    /**
+     * Tests GetUserLisat method. 
+     * Adds initial users directly to the static list
+     * Checks that user list is initialized correctly
+     * Validates one static user.
+     * @author [Max Svensson, maxsve18 @github]   
+     */
     @Test
     void testGetUserList() {
         // Adds initial users directly to the static list
@@ -52,11 +65,9 @@ public class UserTest {
         User.getUserList().add(new User("325612654", "Elin", "Larsson",
                 "Vaksalagatan 18, 753 20 Uppsala", "elin.larsson@example.com"));
 
-        // Checks that user list is initialized correctly
         List<User> users = User.getUserList();
         assertEquals(3, users.size(), "Static user list should contain 3 users initially");
 
-        // Validates  1 static user. 
         User user = users.get(0);
         assertEquals("234579128", user.getUserID());
         assertEquals("Leonard", user.getName());
