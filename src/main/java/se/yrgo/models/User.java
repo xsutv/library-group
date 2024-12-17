@@ -54,4 +54,8 @@ public class User {
                                                 "elin.larsson@example.com")));
         }
 
+    public String getUserID() {
+        return userID;
+    }
+
 }
