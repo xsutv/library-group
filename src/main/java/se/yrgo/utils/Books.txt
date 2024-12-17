@@ -90,3 +90,6 @@
 
 21312314f,Hejsan,Hoppsan,666,Karlsson
 aasdasf,adqwdq,asdsd,66,gef
+12345,lord of the rings,j r r tolkien,518,fantasy
+123,Lord of the rings,j j r tolkien,518,fantasy
+5647,r,r,3,r
