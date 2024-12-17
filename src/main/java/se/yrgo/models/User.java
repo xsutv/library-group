@@ -1,6 +1,8 @@
 package se.yrgo.models;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class User {
         private String userID;
@@ -8,6 +10,8 @@ public class User {
         private String lastName;
         private String adress;
         private String eMail;
+
+        private static final List<User> userList = new ArrayList<>();
 
         // Constructor
         public User(String userID, String name, String lastName, String adress, String eMail) {
