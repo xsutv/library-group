@@ -1,8 +1,6 @@
 package se.yrgo.models;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class User {
         private String userID;
@@ -10,19 +8,6 @@ public class User {
         private String lastName;
         private String adress;
         private String eMail;
-
-        // Static user list
-        private static List<User> userList = new ArrayList<>();
-
-        static {
-                // Adding some example users to the list
-                userList.add(new User("234579128", "Leonard", "Björkengren", "Östra Storgatan 8, 553 21 Jönköping",
-                                "leo.björkengren@gmail.com"));
-                userList.add(new User("457878321", "Alexander", "Johansson", "Drottninggatan 23B, 252 20 Helsingborg",
-                                "alex.johansson@hotmail.com"));
-                userList.add(new User("325612654", "Elin", "Larsson", "Vaksalagatan 18, 753 20 Uppsala",
-                                "elin.larsson@example.com"));
-        }
 
         public User(String userID, String name, String lastName, String adress, String eMail) {
                 this.userID = userID;
@@ -32,9 +17,24 @@ public class User {
                 this.eMail = eMail;
         }
 
-        // Retrieving the userlist.
-        public static List<User> getUserList() {
-                return new ArrayList<>(userList);
+        public String getUserID() {
+                return userID;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public String getLastName() {
+                return lastName;
+        }
+
+        public String getAdress() {
+                return adress;
+        }
+
+        public String getEMail() {
+                return eMail;
         }
 
         // Registration method.
@@ -82,6 +82,17 @@ public class User {
                 } catch (Exception e) {
                         System.err.println("User registration error: " + e.getMessage());
                 }
+        }
+
+        // Retrieving the userlist.
+        public static List<User> getUserList() {
+                return new ArrayList<>(List.of(
+                                new User("234579128", "Leonard", "Björkengren", "Östra Storgatan 8, 553 21 Jönköping",
+                                                "leo.björkengren@gmail.com"),
+                                new User("457878321", "Alexander", "Johansson",
+                                                "Drottninggatan 23B, 252 20 Helsingborg", "alex.johansson@hotmail.com"),
+                                new User("325612654", "Elin", "Larsson", "Vaksalagatan 18, 753 20 Uppsala",
+                                                "elin.larsson@example.com")));
         }
 
         @Override
