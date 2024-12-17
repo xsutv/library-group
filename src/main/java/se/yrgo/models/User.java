@@ -9,6 +9,7 @@ public class User {
         private String adress;
         private String eMail;
 
+        // Constructor
         public User(String userID, String name, String lastName, String adress, String eMail) {
                 this.userID = userID;
                 this.name = name;
@@ -17,6 +18,7 @@ public class User {
                 this.eMail = eMail;
         }
 
+        //Getters
         public String getUserID() {
                 return userID;
         }
