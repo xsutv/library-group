@@ -2,7 +2,7 @@ package se.yrgo.models;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
-
+ 
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,7 +40,7 @@ public class UserTest {
         assertEquals("Björkengren", registeredUser.getLastName());
         assertEquals("Östra Storgatan 8, 553 21 Jönköping", registeredUser.getAdress());
         assertEquals("leo.björkengren@gmail.com", registeredUser.getEMail());
-    }     
+    }
 
     @Test
     void testRegisterUser_NotValidEmail() {
