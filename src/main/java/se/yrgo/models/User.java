@@ -30,6 +30,9 @@ public class User {
                 return lastName;
         }
 
+        public String getUserID() {
+                return userID;
+            }
 
 
         @Override
