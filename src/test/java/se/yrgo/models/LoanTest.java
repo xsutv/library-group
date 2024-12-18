@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class LoanTest {
+
     private Library lib = new Library();
     private String isbn;
 
@@ -26,7 +27,7 @@ public class LoanTest {
     public void testCheckLoanStatus() {
         // true = book not borrowed
         Loan.loanBook(lib.getLib(), isbn, user1);
-        assertTrue(Loan.checkLoanStatus(book1.getIsbn(), user1));
+        assertFalse(Loan.checkLoanStatus(book1.getIsbn(), user1));
     }
 
 }
