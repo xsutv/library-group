@@ -48,24 +48,22 @@ public class Main {
         }
     }
 
-    private static void addUserReview() {
-        // Reviews rev = new Reviews();
-        try (Scanner input = new Scanner(System.in)) {
-            do {
-                System.out.println("Specify the ISBN of the book you want to review: ");
-                String isbn = input.nextLine().trim();
+    private static void addUserReview(Scanner scanner) {
 
-                System.out.println("Comment: (frivilligt)");
-                String comment = input.nextLine().trim();
+        try {
 
-                System.out.println("Rate the book 1-5: ");
-                String rating = input.nextLine().trim();
+            System.out.println("Specify the ISBN of the book you want to review: ");
+            String isbn = scanner.nextLine().trim();
 
-                review.addReview(isbn, comment, rating);
+            System.out.println("Comment: (frivilligt)");
+            String comment = scanner.nextLine().trim();
 
-                System.out.println("Thank you for your review!");
+            System.out.println("Rate the book 1-5: ");
+            String rating = scanner.nextLine().trim();
 
-            } while (input.nextLine() != null);
+            review.addReview(isbn, comment, rating);
+
+            System.out.println("Thank you for your review!");
 
         } catch (IOException e) {
             System.out.println("Something went wrong " + e.getMessage());
@@ -80,9 +78,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        // add book
-        // loan book
-        // add review
+
         String input = "";
 
         List<String> options = new ArrayList<>(List.of("Add book", "Rent book", "Add book review"));
@@ -110,7 +106,7 @@ public class Main {
                         rentBook(scanner, library, loggedInUser);
                         break;
                     case "3":
-                        addUserReview();
+                        addUserReview(scanner);
                         break;
                     default:
                         break;
