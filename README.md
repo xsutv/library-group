@@ -16,7 +16,7 @@ This project is a library where you can add, browse, rent and add reviews on boo
 After downloading the repository, open a terminal and go to the project root folder.
 
 Run `mvn compile` to generate needed target folder.</br>
-Then in the same directory, run: `mvn compile` and then `mvn package`.
+Then in the same directory, run: `mvn package`.
 Then run `java -jar target/groupseven-1.0-SNAPSHOT.jar`.
 
 ### Step 2:
@@ -24,7 +24,7 @@ Then run `java -jar target/groupseven-1.0-SNAPSHOT.jar`.
 After this, a menu will appear where you're given 3 options:
 
 1. **Add book** - Add a book to library.
-2. **Rent book** - 
+2. **Rent book** - Rent a book from library
 3. **Add book review** - Leave a review on any given book in the library by specifying it's ISBN.
 
 ---
