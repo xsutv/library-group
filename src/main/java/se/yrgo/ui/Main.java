@@ -72,7 +72,10 @@ public class Main {
         }
     }
 
-    private static void rentBook() {
+    private static void rentBook(Scanner input, Library lib, User user) {
+        System.out.println("Write the ISBN of the book you want to borrow:");
+        String bookIsbn = input.nextLine();
+        Loan.loanBook(library.getLib(), bookIsbn, user);
 
     }
 
@@ -104,7 +107,7 @@ public class Main {
                         addBookFunctionality(scanner);
                         break;
                     case "2":
-                        // Rent book functionality
+                        rentBook(scanner, library, loggedInUser);
                         break;
                     case "3":
                         addUserReview();
