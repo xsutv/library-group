@@ -24,7 +24,7 @@ Then run `java -jar target/groupseven-1.0-SNAPSHOT.jar`.
 After this, a menu will appear where you're given 3 options:
 
 1. **Add book** - Add a book to library.
-2. **Rent book** - Rent a book from library
+2. **Rent book** - Rent a book from library.
 3. **Add book review** - Leave a review on any given book in the library by specifying it's ISBN.
 
 ---
