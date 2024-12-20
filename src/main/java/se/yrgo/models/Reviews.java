@@ -33,7 +33,7 @@ public class Reviews {
                 reviewsMap.get(isbn).add(reviewLine);
             }
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println("Oops, something went wrong: " + e);
         }
     }
 
@@ -42,14 +42,16 @@ public class Reviews {
      * @param isbn    id - isbn of reviewd book
      * @param comment the actual review comment written by user
      * @param rating  a review from 1-5
-     * @throws IOException if review is empty
+     * @throws IOException if rating or isbn is empty
      * @author Fia
      */
     public void addReview(String isbn, String comment, String rating) throws IOException {
         String line = isbn.trim().toString() + " , " + comment.toString() + " , " + rating.toString();
 
-        if (rating.toString() == "" || isbn.trim().toString() == "") {
-            throw new IOException("No review found!");
+        if (rating.toString() == "") {
+            throw new IOException("No rating found!");
+        } else if (isbn.trim().toString() == "") {
+            throw new IOException("No ISBN found!");
         }
 
         try (BufferedWriter writer = new BufferedWriter(
@@ -59,7 +61,7 @@ public class Reviews {
             reviewsMap.putIfAbsent(isbn, new ArrayList<>());
             reviewsMap.get(isbn).add(line);
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println("Oops, something went wrong: " + e);
         }
 
         System.out.println(line);
